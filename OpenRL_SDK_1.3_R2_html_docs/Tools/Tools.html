@@ -1,0 +1,1097 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>OpenRL&#8482; SDK Tools</title>
+<style type="text/css">
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+a:visited {
+  color: black;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #C9591B;
+}
+
+tt {
+  color: navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #991F1C;
+  font-family: sans-serif;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+
+h1 {
+	background-color: black;
+	color: white;
+	border: none;
+	padding-top: 0.5em;
+  	padding-bottom: 0.5em;
+  	padding-left: 0.5em;
+  	background-repeat: no-repeat;
+  	text-align: center;
+}
+
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+
+div.sectionbody {
+  font-family: serif;
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+
+pre {
+  padding: 0;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+span#author {
+  color: #99691C;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+span#email {
+}
+span#revnumber, span#revdate, span#revremark {
+  font-family: sans-serif;
+}
+
+div#footer {
+  font-family: sans-serif;
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+div#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+div#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+div#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 0.25em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #99691C;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock {
+  padding-left: 2.0em;
+  margin-right: 10%;
+}
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock {
+  padding-left: 2.0em;
+  margin-right: 10%;
+}
+div.verseblock > div.content {
+  white-space: pre;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #99691C;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 2px solid silver;
+}
+
+div.exampleblock > div.content {
+  border-left: 2px solid silver;
+  padding: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+div.tableblock > table {
+  border: 2px solid #AAAAAA;
+}
+thead {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+
+@media print {
+  div#footer-badges { display: none; }
+}
+
+div#toctitle {
+  color: #991F1C;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.toclevel1 {
+  color: #99691C; 
+}
+
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+/* Workarounds for IE6's broken and incomplete CSS2. */
+
+div.sidebar-content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+div.sidebar-title, div.image-title {
+  color: #99691C;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+}
+
+div.listingblock div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock-attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock-content {
+  white-space: pre;
+}
+div.verseblock-attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+
+div.exampleblock-content {
+  border-left: 2px solid silver;
+  padding-left: 0.5em;
+}
+
+/* IE6 sets dynamically generated links as visited. */
+div#toc a:visited { color: black; }
+
+@media print {
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    a:visited {
+      text-decoration: none;
+      color: black;
+    }
+}
+
+</style>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(1);
+/*]]>*/
+</script>
+</head>
+<body class="article" style="max-width:55em">
+<div id="header">
+<h1>OpenRL&#8482; SDK Tools</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_statsplotter">StatsPlotter</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>A Tool for monitoring the statistics of a live running application. This helps a developer
+better diagnose and optimize their application.</p></div>
+<div class="paragraph"><p>If you wish to disable stats altogether (for instance, for a release to customers) pass the appropriate attribute to <code>OpenRLCreateContext</code>.</p></div>
+<div class="sect2">
+<h3 id="_the_interface">The Interface</h3>
+<div class="paragraph"><p>When you first start StatsPlotter, if you are not running any OpenRL&#8482; applications, you will see a
+blank window with two panes. In this state StatsPlotter is looking for an application to attach to.
+As soon as you run an OpenRL&#8482; application StatsPlotter will automatically attach to it and you will
+see the left pane get populated with a tree of statistics that are available for monitoring. Expand
+the tree and check the boxes of stats you are interested in tracking.</p></div>
+<div class="imageblock" style="text-align:center;">
+<div class="content">
+<img src="Images/StatsPlotter.png" alt="Images/StatsPlotter.png" width="850" />
+</div>
+</div>
+<div class="paragraph"><p>As you select stats it will begin plotting their values in the right-hand pane. These stats will be
+updated every frame. When you quit your app the stats will disappear but when you start it up again
+the same stats will be registered and plotted automatically. The same stats are remembered across
+runs of StatsPlotter as well, so you won&#8217;t need to re-register them every time you run StatsPlotter.</p></div>
+<div class="dlist"><div class="title">The Stats</div><dl>
+<dt class="hdlist1">
+<strong>RLSL</strong>
+</dt>
+<dd>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>compile_time</strong>
+</dt>
+<dd>
+<p>
+The total time spent compiling shaders.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>link_time</strong>
+</dt>
+<dd>
+<p>
+The total time spent linking programs.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>codegen_time</strong>
+</dt>
+<dd>
+<p>
+The total time spent generating code (included in frame.prepare_time).
+</p>
+</dd>
+</dl></div>
+</dd>
+<dt class="hdlist1">
+<strong>context</strong>
+</dt>
+<dd>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>creation_time</strong>
+</dt>
+<dd>
+<p>
+The total time spent creating the OpenRL context.
+</p>
+</dd>
+</dl></div>
+</dd>
+<dt class="hdlist1">
+<strong>frame</strong>
+</dt>
+<dd>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>accumulate_count</strong>
+</dt>
+<dt class="hdlist1">
+<strong>accumulates_per_pixel</strong>
+</dt>
+<dt class="hdlist1">
+<strong>accumulates_per_ray</strong>
+</dt>
+<dt class="hdlist1">
+<strong>av_fps</strong>
+</dt>
+<dd>
+<p>
+The total number of frames rendered throughout the life of the program divided by the total time it took to render each frame (<strong>total_time</strong>).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>av_rays_per_second</strong>
+</dt>
+<dd>
+<p>
+The sum of all values of <strong>rays_per_second</strong> divided by the total number of frames rendered throughout the life of the program.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>dimensions.height</strong>
+</dt>
+<dd>
+<p>
+The height of the current frame.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>dimensions.width</strong>
+</dt>
+<dd>
+<p>
+The width of the current frame.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>fps</strong>
+</dt>
+<dd>
+<p>
+One divided by the time spent in <code>rlRenderFrame()</code> (<strong>total_time</strong>).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>occlusion_ray_usage</strong>
+</dt>
+<dd>
+<p>
+Percentage of rays that are occlusion rays.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>output_ray_usage</strong>
+</dt>
+<dd>
+<p>
+The percentage of declared output rays used this frame. See documentation on the <code>"setup"</code> shader entry point and rl_OutputRayCount.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>pixel_count</strong>
+</dt>
+<dd>
+<p>
+The width of the current frame multiplied by the height of the current frame.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>pixels_per_second</strong>
+</dt>
+<dd>
+<p>
+The number of pixels rendered per second.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>prepare_time</strong>
+</dt>
+<dd>
+<p>
+The time spent in <code>rlRenderFrame()</code> preparing to begin actual rendering. It can be thought of as time in rlRenderFrame that wasn&#8217;t spent rendering.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>ray_count</strong>
+</dt>
+<dd>
+<p>
+The total number of rays emitted in a single frame.
+        <strong>ray_size</strong>
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>rays_per_pixel</strong>
+</dt>
+<dd>
+<p>
+The total number of rays emitted in a single render divided by the number of pixels in the current frame.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>rays_per_second</strong>
+</dt>
+<dd>
+<p>
+The number of rays emitted for the current frame divided by the time it took to render that frame (<strong>render_time</strong>).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>render_time</strong>
+</dt>
+<dd>
+<p>
+The time in <code>rlRenderFrame()</code> spent rendering (see <strong>prepare_time</strong>).
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>shadow_opaque_hit_rate</strong>
+</dt>
+<dd>
+<p>
+The percentage of all rays emitted that were shadow opaque hits.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>total_time</strong>
+</dt>
+<dd>
+<p>
+The total time spent in <code>rlRenderFrame()</code> (<strong>prepare_time</strong> + <strong>render_time</strong>).
+</p>
+</dd>
+</dl></div>
+</dd>
+<dt class="hdlist1">
+<strong>geometry_unit</strong>
+</dt>
+<dd>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>dynamic_triangle_count</strong>
+</dt>
+<dd>
+<p>
+The number of triangles processed this frame.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>dynamic_triangles_per_second</strong>
+</dt>
+<dd>
+<p>
+<strong>dynamic_triangle_count</strong>/<strong>geometry_processing_time</strong>
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>geometry_processing_time</strong>
+</dt>
+<dd>
+<p>
+The amount of time spent running vertex shaders and constructing acceleration structures.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>primitive_count</strong>
+</dt>
+<dd>
+<p>
+The total number of primitives in this frame.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>total_triangle_count</strong>
+</dt>
+<dd>
+<p>
+The total number of triangles in this frame.
+</p>
+</dd>
+</dl></div>
+</dd>
+<dt class="hdlist1">
+<strong>system</strong>
+</dt>
+<dd>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>is_hardware_accelerated</strong>
+</dt>
+<dd>
+<p>
+Returns 1 if hardware is used to accelerate OpenRL.
+</p>
+</dd>
+</dl></div>
+</dd>
+</dl></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_profiler">Profiler</h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align:center;">
+<div class="content">
+<img src="Images/profiler.png" alt="Images/profiler.png" width="600" />
+</div>
+</div>
+<div class="paragraph"><p>The Profiler is a tool for debugging OpenRL&#8482; programs. It allows you to connect to a
+running OpenRL&#8482; program and pause it between frames to examine the output.</p></div>
+<div class="paragraph"><p>The most useful feature of Profiler is the ability to click on a pixel in the main viewport
+and see what rays were emitted for that pixel for those times when you wonder "why is that
+pixel red?" Tracing pixels is only allowed while the OpenRL&#8482; application under inspection
+is paused.</p></div>
+<div class="paragraph"><p>If you wish to disable the profiling of your paplication (for instance, for a release to customers),
+pass the appropriate attribute to <code>OpenRLCreateContext</code>.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">If you wish to disable profiling of your application pass the appropriate attribute to
+<code>OpenRLCreateContext</code>.</td>
+</tr></table>
+</div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">To get the most out of Profiler you should give your OpenRL&#8482; objects meaningful
+names using <code>rlSetPrimitiveString(&#8230;)</code>, etc. Otherwise they will show up with their
+default names which aren&#8217;t very helpful as they&#8217;re just pointer strings, making it
+difficult to extract much meaning from them.</td>
+</tr></table>
+</div>
+<div class="sect2">
+<h3 id="_the_interface_2">The Interface</h3>
+<div class="paragraph"><p>The Profiler consists of a toolbar and six main views which show you the state of the
+OpenRL&#8482; part of your program: Primitives, Framebuffers, Ray Trees, 3D, Loupe and the Viewport.
+All of these but the normal Viewport are dockable, so you can rearrange them as you like.</p></div>
+<div class="sect3">
+<h4 id="_the_toolbar">The Toolbar</h4>
+<div class="paragraph"><p><span class="image">
+<img src="Images/profiler_toolbar.png" alt="The Toolbar" />
+</span></p></div>
+<div class="paragraph"><p>The toolbar contains only two buttons: Play/Pause and Framestep. After you connect to a running
+OpenRL program updates will stream to Profiler and the interface will reflect the state of
+the running program as it updates. Press the "Pause" button to pause the running application
+to allow you to inspect things more closely. Pixel tracing requires the running application
+to be paused.</p></div>
+<div class="paragraph"><p>The Framestep button, when pressed, will unpause the OpenRL&#8482; application long enough
+for it to render exactly one frame. It&#8217;s like a "step over" command in a traditional
+source debugger like GDB. This is very helpful when trying to debug multi-pass programs
+like the Adaptive Anti-Aliasing sample application included in this SDK. If, when you
+press "Pause", the application does not stop on the pass of interest you can simply
+press the Framestep button until you arrive at the pass you are interested in.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_framebuffer">Framebuffer</h4>
+<div class="paragraph"><p>This will show you all attachmed color buffers for the currently active/bound framebuffer
+object. You can select one of the color buffers and it will be displayed in the viewport
+view (Lower-right in the image). There is always one extra color buffer ("Rays Per-Pixel")
+listed that is created by OpenRL&#8482; when the Profiler is attached (i.e. it won&#8217;t be there for
+the first frame after you connect to a running program) that, when selected, will show you
+a heat map of how many rays are emitted per-pixel.</p></div>
+<div class="imageblock" style="text-align:center;">
+<div class="content">
+<img src="Images/profiler_raysperpixel.png" alt="Images/profiler_raysperpixel.png" width="300" />
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_viewport_and_loupe">Viewport and Loupe</h4>
+<div class="paragraph"><p>The Viewport shows you the contents of the currently selected color buffer from the Framebuffer
+pane. When the mouse is in this viewport you cursor will become a crosshair and the
+Loupe pane will show you a magnified view of what your mouse cursor is currently over. Click
+in the viewport to see what rays were traced through that pixel. If the application is
+not paused when you click a pixel, then it will be paused for you. The currently selected
+pixel will be marked by longer crosshairs that extend to the edges of the image.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_ray_trees">Ray Trees</h4>
+<div class="paragraph"><p>This pane will present you with a list of all pixel&#8217;s you&#8217;ve clicked on this frame
+and present each one as a tree of rays you can examine. The ray tree you have currently
+selected will also be selected in the Viewport and Loupe panes as was previously described.
+If you wish to copy the textual representation of the ray tree to the clipboard just
+select a row and press cmd/ctrl-C and that whole subtree (or attribute if you have an
+indicidual ray attribute selected)  will be copied to the clipboard. This is useful for
+comparing ray trees across multiple runs of a program.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_3d">3D</h4>
+<div class="paragraph"><p>This pane shows all the visible geometry of the current frame as well as the rays of
+the currently selected pixel trace (as selected in the "Ray Trees" pane). Use your mouse
+to navigate using camera paradigms you may already be familiar with from 3D modeling
+applications.</p></div>
+<div class="paragraph"><div class="title">Navigation</div><p>The OpenRL Profiler has support for navigating the 3D view using a SpaceNavigator.
+While the SpaceNavigator is connected you will not be able to navigate with the
+mouse. You can adjust the sensitivity from the "Spaceball Settings" window
+accessed from the "Spaceball" menu item.</p></div>
+<div class="paragraph"><p><span class="image">
+<img src="Images/Profiler_Navigation.png" alt="Images/Profiler_Navigation.png" width="500" />
+</span></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Look/orbit the camera by dragging in the view.
+</p>
+</li>
+<li>
+<p>
+Dolly the camera forward and back by holding the spacebar.
+</p>
+</li>
+<li>
+<p>
+Adjust the camera&#8217;s distance from the orbit focus point by holding "option/alt" and the spacebar.
+</p>
+</li>
+<li>
+<p>
+Truck your camera up/down/left/right by holding the "Shift" key.
+</p>
+</li>
+<li>
+<p>
+Adjust the scale of the scene by holding "option/alt" and "Shift".
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>To make ray behavior easier to understand, rays are color-coded with a gradient (to
+show direction).</p></div>
+<div class="paragraph"><div class="title">Normal Rays</div><p><span class="image">
+<img src="Images/normal.png" alt="Normal" />
+</span>
+<span class="image">
+<img src="images/normalmiss.png" alt="Normal Miss" />
+</span></p></div>
+<div class="paragraph"><p>Black-to-white rays are normal rays and if they miss they are drawn with a repeating
+black-to-white gradient (it almost looks dashed). You can see in the image above
+that the currently selected ray is also drawn with a green outline.</p></div>
+<div class="paragraph"><div class="title">Occlusion-Test Rays</div><p><span class="image">
+<img src="Images/occlusiontest.png" alt="Occlusion Test" />
+</span>
+<span class="image">
+<img src="Images/occlusiontestmiss.png" alt="Occlusion Test Miss" />
+</span>
+<span class="image">
+<img src="Images/occluded.png" alt="Occluded Occlusion Test" />
+</span></p></div>
+<div class="paragraph"><p>If a ray is an occlusion-test ray it is drawn with a red-to-white gradient. Just like
+the normal ray, the occlusion test ray is drawn with a repeating gradient if it misses.
+If an occlusion test ray is occluded, it is drawn with a blue-to-white repeating gradient
+but is still drawn to it&#8217;s destination (since we don&#8217;t know which object it was occluded
+by).</p></div>
+<div class="paragraph"><div class="title">Obscured Rays</div><p><span class="image">
+<img src="Images/obscured.png" alt="Obscured Rays" />
+</span></p></div>
+<div class="paragraph"><p>When a ray is obscured by geometry is is drawn with a black and white screen-door pattern.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_primitives">Primitives</h4>
+<div class="paragraph"><p>This pane shows a list of all primitives in the scene and various statistics about them.
+The currently selected primitive will be drawn in the 3D pane in a bright green color.</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Copyright&copy; Caustic Graphics, Inc. 2006-2013.  OpenRL SDK 1.3 R2
+</div>
+</div>
+</body>
+</html>

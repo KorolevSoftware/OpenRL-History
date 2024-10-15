@@ -1,0 +1,1987 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.8" />
+<title>OpenRL&#8482; SDK Examples</title>
+<style type="text/css">
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: black;
+  text-decoration: underline;
+}
+a:visited {
+  color: black;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #C9591B;
+}
+
+tt {
+  color: navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #991F1C;
+  font-family: sans-serif;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+
+h1 {
+	background-color: black;
+	color: white;
+	border: none;
+	padding-top: 0.5em;
+  	padding-bottom: 0.5em;
+  	padding-left: 0.5em;
+  	background-repeat: no-repeat;
+  	text-align: center;
+}
+
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+
+div.sectionbody {
+  font-family: serif;
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+
+pre {
+  padding: 0;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+span#author {
+  color: #99691C;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+span#email {
+}
+span#revnumber, span#revdate, span#revremark {
+  font-family: sans-serif;
+}
+
+div#footer {
+  font-family: sans-serif;
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+div#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+div#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+div#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 0.25em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #99691C;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock {
+  padding-left: 2.0em;
+  margin-right: 10%;
+}
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock {
+  padding-left: 2.0em;
+  margin-right: 10%;
+}
+div.verseblock > div.content {
+  white-space: pre;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #99691C;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 2px solid silver;
+}
+
+div.exampleblock > div.content {
+  border-left: 2px solid silver;
+  padding: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+div.tableblock > table {
+  border: 2px solid #AAAAAA;
+}
+thead {
+  font-family: sans-serif;
+  font-weight: bold;
+}
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+
+@media print {
+  div#footer-badges { display: none; }
+}
+
+div#toctitle {
+  color: #991F1C;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.toclevel1 {
+  color: #99691C; 
+}
+
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+/* Workarounds for IE6's broken and incomplete CSS2. */
+
+div.sidebar-content {
+  background: #ffffee;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+div.sidebar-title, div.image-title {
+  color: #99691C;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+}
+
+div.listingblock div.content {
+  border: 1px solid silver;
+  background: #f4f4f4;
+  padding: 0.5em;
+}
+
+div.quoteblock-attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock-content {
+  white-space: pre;
+}
+div.verseblock-attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+
+div.exampleblock-content {
+  border-left: 2px solid silver;
+  padding-left: 0.5em;
+}
+
+/* IE6 sets dynamically generated links as visited. */
+div#toc a:visited { color: black; }
+
+@media print {
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    a:visited {
+      text-decoration: none;
+      color: black;
+    }
+}
+
+</style>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(1);
+/*]]>*/
+</script>
+</head>
+<body class="article" style="max-width:55em">
+<div id="header">
+<h1>OpenRL&#8482; SDK Examples</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_draw_one_triangle">Draw One Triangle</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/DrawOneTriangle.png" alt="./Images/DrawOneTriangle.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview">Overview</h3>
+<div class="paragraph"><p>Shows how to setup OpenRL&#8482; to "draw one triangle".</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Uses the provided <strong>GLUT</strong> utility library to get a window on the screen.
+</p>
+</li>
+<li>
+<p>
+Uses a simple <strong>frame shader</strong> to fire orthographically projected rays.
+</p>
+</li>
+<li>
+<p>
+A one line <strong>ray shader</strong> to make a blue surface.
+</p>
+</li>
+<li>
+<p>
+Sets up a single <strong>primitive object</strong>, appropriate <strong>vertex buffer objects</strong> and
+  loads a single triangle into OpenRL&#8482;.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls">Keyboard Controls</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+None
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">131</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">91</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">1</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">23</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">1</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_transparency">Transparency</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/Transparency.png" alt="./Images/Transparency.png" height="425" />
+</span>
+<span class="image">
+<img src="./Images/TransparencyDiagram.png" alt="./Images/TransparencyDiagram.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_2">Overview</h3>
+<div class="paragraph"><p>Simple example to demonstrate the non-blocking shading system in OpenRL&#8482;.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_2">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+OpenRL&#8482; employs a non-blocking shading system allowing for massive acceleration
+  flexibility by the implementation.  As such, shaders do not "block" waiting for
+  the result of an emitted ray.  This means you pass along the state required to
+  shade the ray.
+</p>
+</li>
+<li>
+<p>
+OpenRL&#8482; doesn&#8217;t enforce an <span class="red">R</span> <span class="green">G</span> <span class="blue">B</span> color model; instead color is simply a user
+  defined <strong>ray attribute</strong> which is propagated through rays as they move between
+  shaders in the scene.  It is helpful to think of the color as "how attenuated
+  the <span class="red">R</span> <span class="green">G</span> <span class="blue">B</span> contributions are for that ray".  Full spectrum
+  representations of color are easily possible within OpenRL&#8482;.
+</p>
+</li>
+<li>
+<p>
+As rays bounce through shaders, they inherit the original pixel address they are
+  contributing to.  This means you can call <strong>accumulate()</strong> at any time in any shader
+  to accumulate color into the framebuffer pixel for that ray.
+</p>
+</li>
+<li>
+<p>
+When rays are cast from the camera, they are fully "un-attenuated", meaning
+  <span class="red">R=1.0</span>, <span class="green">G=1.0</span>, <span class="blue">B=1.0</span>; thus;<br />
+  <code>rl_OutRay.color = vec3(1.0)</code>;
+</p>
+</li>
+<li>
+<p>
+When they hit a transparent colored shader, it "attenuates" the color of
+  the incoming ray by the local color and assigns this to the outgoing ray, i.e.<br />
+  <code>rl_OutRay.color  = rl_InRay.color * localColor</code><br />
+  or in shorthand:<br />
+  <code>rl_OutRay.color *= localColor</code>; <br />
+  since all user ray attributes are automatically inherited.
+</p>
+</li>
+<li>
+<p>
+When a ray eventually hits an emissive shader, it will call <strong>accumulate()</strong> to
+  add energy into the frame buffer pixel, i.e.<br />
+  <code>accumulate(rl_InRay.color * luminaireColor)</code><br />
+  In this example, the framebuffer is only updates by the striped background shader;
+  rays moving through the filters do not touch the frame buffer at all.
+</p>
+</li>
+</ul></div>
+<div style="page-break-after:always"></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_2">Keyboard Controls</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+None
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_2">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">183</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">31</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">6</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">23</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">4</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_frame_shader_only">Frame Shader Only</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/FrameShaderOnly.png" alt="./Images/FrameShaderOnly.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_3">Overview</h3>
+<div class="paragraph"><p>Shows a frame shader being used for things other than casting primary rays.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_3">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Uses a <strong>frame shader</strong> to generate a weird pattern and <strong>accumulating</strong> it into the frame buffer.
+</p>
+</li>
+<li>
+<p>
+<strong>NOTE</strong>: Frame shaders are a great way to perform post-processing on a rendered image from
+  a previous pass, among other 2D screen space filters.  They are efficient since they are
+  mapped to the underlying shading hardware.  This allows you to offload certain image processing
+  passes to OpenRL&#8482;.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_3">Keyboard Controls</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+None
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_3">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">75</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">7</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_occluders">Occluders</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/Occlusion.png" alt="./Images/Occlusion.png" height="425" />
+</span>
+<span class="image">
+<img src="./Images/OcclusionDiagram.png" alt="./Images/OcclusionDiagram.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_4">Overview</h3>
+<div class="paragraph"><p>Shows how to perform optimal ray traced shadows using OpenRL&#8482;.  This shows how to render shadows with opaque
+objects and colored shadows with transparent objects that themselves have procedural shaders.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_4">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Uses additional user-defined <strong>ray attributes</strong> to carry extra information with rays.
+</p>
+</li>
+<li>
+<p>
+Use of the <strong>RL_PRIMITIVE_IS_OCCLUDER</strong> flag on different primitives in the scene.  Rays which intersect
+  opaque primitives are not shaded in OpenRL&#8482;.  In order to create transparent shadows, you must flag
+  the primitive as non-opaque and OpenRL&#8482; will schedule that primitives shader for execution.  The colored
+  filters are non-opaque and their shaders emit a secondary ray with tinted color.  The bouncing brick
+  is marked as opaque and will produce black shadows.  By default, primitives are marked as opaque since
+  this is the highest performance path.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_4">Keyboard Controls</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+None
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_4">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">288</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">115</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">5638</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">15</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">7</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_procedural_shader_anti_aliasing">Procedural shader Anti-Aliasing</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/ProceduralAA1.png" alt="./Images/ProceduralAA1.png" height="425" />
+</span>
+<span class="image">
+<img src="./Images/ProceduralAA2.png" alt="./Images/ProceduralAA2.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_5">Overview</h3>
+<div class="paragraph"><p>Shows the power of the built-in RLSL differential functions and the ability of OpenRL&#8482; to automatically
+maintain correct differentials throughout the ray tree, without any additional work for the shader programmer.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_5">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Checkerboard <strong>ray shader</strong> is paying attention to <strong>ray differentials</strong> on the right side of
+  the screen.  It takes the <strong>fwidth()</strong> of the scaled texture co-ordinate.  It uses this filter
+  width as an argument to the RLSL <strong>smoothstep()</strong> function to smooth the square wave transition
+  from black to white in the checkerboard.
+</p>
+</li>
+<li>
+<p>
+Observe that even in the reflections and refractions off the balls, the filter values are
+  valid in the checkerboard shader.  Note that neither the reflection or refraction shader do
+  any explicit work to update or track the differentials of rays passing through.  This is
+  handled automatically by the OpenRL&#8482; implementation.
+</p>
+</li>
+<li>
+<p>
+The checkerboard shader branches its behaviour based on whether that shader is running
+  on the left or right side of the frame buffer.  Using <strong>rl_FrameCoord</strong> this information is
+  available at any point in the ray tree for a pixel.
+</p>
+</li>
+<li>
+<p>
+When the filter width exceeds a the Nyquist frequency, we use RLSL <strong>mix()</strong> to blend in
+  an average color for the checkerboard (grey).
+</p>
+</li>
+<li>
+<p>
+Frame shader uses <strong>rl_FrameCoord</strong> to overlay the green dividing line on the display.  This can be used
+  for overlays if desired.
+</p>
+</li>
+</ul></div>
+<div style="page-break-after:always"></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_5">Keyboard Controls</h3>
+<div class="paragraph"><p><span class="image">
+<img src="./Images/space.png" alt="./Images/space.png" height="32" />
+</span> : Toggles showing display of the filter width<br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_5">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">321</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">111</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">6714</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">25</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">4</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_animation">Animation</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/Animation.png" alt="./Images/Animation.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_6">Overview</h3>
+<div class="paragraph"><p>Demonstrates the different ways of performing geometry animation using OpenRL&#8482;.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_6">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Use of vertex shader to statically transform geometry.  The tori are actually
+  spheres who are being transformed into tori using a vertex shader.  RLSL vertex
+  shaders work almost identically to traditional GLSL vertex shaders.
+</p>
+</li>
+<li>
+<p>
+Use of vertex shader to dynamically transform geometry.  The floor is a patch
+  grid where every vertex is being moved per frame to create geometric waves.
+</p>
+</li>
+<li>
+<p>
+<strong>Transform cache</strong> is being used on both tori as they are animating.  For cases
+  where you know that per vertex local co-ordinates are constant between frames,
+  but you are translating, scaling and rotating; this allows the implementation
+  to improve animation performance.
+</p>
+</li>
+<li>
+<p>
+The rippling floor is not using transform cache since it would provide no
+  benefit since the per vertex geometry is changing every frame.
+</p>
+</li>
+<li>
+<p>
+If you know the per vertex positions are changing every frame, its better not to
+  use <strong>transform cache</strong> since it may consume additional resources in the
+  implementation.
+</p>
+</li>
+<li>
+<p>
+For non-interactive applications, like a single shot final render, there is
+  no benefit to using <strong>transform cache</strong>.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_6">Keyboard Controls</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+None
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_6">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">458</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">135</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">80390</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">6</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">88</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cornell_box">Cornell Box</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/CornellBox.png" alt="./Images/CornellBox.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_7">Overview</h3>
+<div class="paragraph"><p>Shows a typical Cornell Box rendered using OpenRL&#8482;.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_7">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+A simple pinhole camera <strong>frame shader</strong>.
+</p>
+</li>
+<li>
+<p>
+Using a texture to encode information other than images.
+</p>
+</li>
+<li>
+<p>
+Hard point shadows from multiple light sources.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_7">Keyboard Controls</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+None
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_7">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">454</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">64</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">139</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">6724</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">23</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">8</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adaptive_anti_aliasing">Adaptive Anti-Aliasing</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/AdaptiveAA.png" alt="./Images/AdaptiveAA.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_8">Overview</h3>
+<div class="paragraph"><p>Shows how to use multiple rendering passes to do image processing.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_8">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Rendering into an off-screen <strong>FBO</strong>.
+</p>
+</li>
+<li>
+<p>
+Reading from an FBO and performing primitive edge detection in a <strong>frame shader</strong>.
+</p>
+</li>
+<li>
+<p>
+Performing 5x super sampling in a frame shader in a rotated quincunx pattern.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_8">Keyboard Controls</h3>
+<div class="paragraph"><p><span class="image">
+<img src="./Images/space.png" alt="./Images/space.png" height="32" />
+</span> : Toggle the adaptive super sampling pass<br />
+<span class="image">
+<img src="./Images/s.png" alt="./Images/s.png" height="32" />
+</span>     : Show the edge detection filter.  Green pixels are being super sampled<br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_8">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">526</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">64</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">139</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">6724</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">61</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">8</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_glassware">Glassware</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/Glassware.png" alt="./Images/Glassware.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_9">Overview</h3>
+<div class="paragraph"><p>Shows refractive and specular shaders on interesting geometric shapes which are
+animating using a rigid transform.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_9">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Up to two rays per intersection are emitted from the refraction shader, one for
+  reflection (ray bounces off the outer surface) and the other for refraction (ray
+  enters surface but path is bent, based on Index of Refraction).  In addition, when
+  refracted rays leave the material, their light energy is attenuated by the distance
+  travelled through the material.
+</p>
+</li>
+<li>
+<p>
+<strong>Transform cache</strong> is being used on both glasses as they are animating.  For cases
+  where you know that per vertex local co-ordinates are constant, but you are translating,
+  scaling and rotating; this allows the implementation to improve animation performance.
+</p>
+</li>
+<li>
+<p>
+Checkerboard <strong>ray shader</strong> is paying attention to <strong>ray differentials</strong>.  Look at the stem
+  of the glasses to observe the high quality shader anti-aliasing built in to OpenRL&#8482;.
+  No additional rays are required to achieve this level of quality.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_9">Keyboard Controls</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+None
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_9">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">265</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">103</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">50466</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">23</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">4</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ambient_occlusion">Ambient Occlusion</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/AmbientOcclusion.png" alt="./Images/AmbientOcclusion.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_10">Overview</h3>
+<div class="paragraph"><p>Shows how to perform ambient occlusion using raytracing and jittered sampling.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_10">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Uses a random number texture to produce a random kernel rotation and then select random
+  ray directions to sample a hemisphere around the current surface normal.  The random numbers
+  are stored in a texture map which is sampled using nearest neighbour filtering.
+</p>
+</li>
+<li>
+<p>
+Use of the special built-in <strong>occlusionTest</strong> and <strong>defaultPrimitive</strong> ray attribute.
+  If occlusion rays hit nothing, they run the <strong>defaultPrimitive</strong> shader which accumulates the
+  ambient color.  If the occlusion ray hits anything else, its immediately dropped and doesn&#8217;t
+  get shaded, resulting in the darkening in the crevices of the model.  Using the <strong>occlusionTest</strong>
+  feature, where possible, allows for faster ray queries and reduced shading overhead.
+</p>
+</li>
+<li>
+<p>
+Multiple secondary rays are emitted from the diffuse objects.  Note how <strong>rl_OutputRayCount[n]</strong> is
+  set to the <strong>uniform</strong> value which contains the sample count.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_10">Keyboard Controls</h3>
+<div class="paragraph"><p><span class="image">
+<img src="./Images/q.png" alt="./Images/q.png" height="32" />
+</span> : Increase number of AO samples (number of rays cast at diffuse surface<br />
+<span class="image">
+<img src="./Images/a.png" alt="./Images/a.png" height="32" />
+</span> : Decrease number of AO samples (number of rays cast at diffuse surface<br />
+<span class="image">
+<img src="./Images/w.png" alt="./Images/w.png" height="32" />
+</span> : Increase AO search radius<br />
+<span class="image">
+<img src="./Images/s.png" alt="./Images/s.png" height="32" />
+</span> : Decrease AO search radius<br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_10">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">235</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">256k</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">66</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">90048</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">23</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">17</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_golden_gate_bridge">Golden Gate Bridge</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/GoldenGate.png" alt="./Images/GoldenGate.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_11">Overview</h3>
+<div class="paragraph"><p>Shows a scene of San Francisco&#8217;s Golden Gate Bridge with animating water in the evening with some fog.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_11">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Uses the <strong>defaultPrimitive</strong> built-in ray attribute for all rays.  This means that when rays
+  don&#8217;t hit geometry, then run a predefined shader.  That shader creates a starry sky effect
+  using the incoming ray direction to feed a procedural function which makes heavy use of Perlin noise.
+</p>
+</li>
+<li>
+<p>
+Uses Perlin noise to perturb water surface normals to reflect rays off.
+</p>
+</li>
+<li>
+<p>
+Heavy use of Perlin noise for water, fog and sky.
+</p>
+</li>
+<li>
+<p>
+Uses secondary rays for alpha transparency in the bridge lights.
+</p>
+</li>
+<li>
+<p>
+Shows a simple lighting loop in the diffuse material on the bridge posts.  All the bridge light
+  positions are passed in via a <strong>uniform block</strong> from the C-API and these are accumulated
+  in the diffuse shader.  <strong>NOTE</strong>: The example doesn&#8217;t do occlusion to the lights, but it would
+  be trivial to cast a ray at each one, or perhaps even just the closest lights.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_11">Keyboard Controls</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+None
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_11">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">464</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">92</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">8474</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">23</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">132</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_car">Car</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/Car.png" alt="./Images/Car.png" height="425" />
+</span>
+<span class="image">
+<img src="./Images/Car2.png" alt="./Images/Car2.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_12">Overview</h3>
+<div class="paragraph"><p>Renders a car model with a number of different runtime-compiled shaders and rendering modes.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_12">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Reusable materials using uniform blocks
+</p>
+</li>
+<li>
+<p>
+Dynamic lighting model changes
+</p>
+</li>
+<li>
+<p>
+More advanced materials
+</p>
+</li>
+<li>
+<p>
+Screen space effects (with toon and sketch modes)
+</p>
+</li>
+<li>
+<p>
+String naming of OpenRL&#8482; objects
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_12">Keyboard Controls</h3>
+<div class="paragraph"><p><span class="image">
+<img src="./Images/1.png" alt="./Images/1.png" height="32" />
+</span> : Daytime, regular point lighting model<br />
+<span class="image">
+<img src="./Images/2.png" alt="./Images/2.png" height="32" />
+</span> : Daytime, non-photo-realistic "toon-shading" lighting model<br />
+<span class="image">
+<img src="./Images/3.png" alt="./Images/3.png" height="32" />
+</span> : Daytime, non-photo-realistic "sketch" lighting model<br />
+<span class="image">
+<img src="./Images/4.png" alt="./Images/4.png" height="32" />
+</span> : Wet road, city neon<br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_12">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="40%" />
+<col width="10%" />
+<col width="40%" />
+<col width="10%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">804</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">0</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">394</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">2M</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">163</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">17</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_particles">Particles</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/Particles.png" alt="./Images/Particles.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_13">Overview</h3>
+<div class="paragraph"><p>Shows a real-time particle simulation using ray tracing for geometric collision detection</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_13">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Uses OpenRL&#8482; for a non-graphical purpose; particle collision detection.
+</p>
+</li>
+<li>
+<p>
+Particle positions, directions and velocities are encoded using rays and OpenRL&#8482;
+  determines particle collisions, collision surface normals, collision resolution
+  and timestep integration of particle positions.
+</p>
+</li>
+<li>
+<p>
+Shows how to use outputs from OpenRL&#8482; to drive inputs to OpenGL to do rasterisation.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_13">Keyboard Controls</h3>
+<div class="paragraph"><p><span class="image">
+<img src="./Images/space.png" alt="./Images/space.png" height="32" />
+</span> : Shows real-time particle simulation with geometric collision detection<br />
+<span class="image">
+<img src="./Images/1.png" alt="./Images/1.png" height="32" />
+</span>     : Toggle display of texture containing particle collision normals from OpenRL&#8482;<br />
+<span class="image">
+<img src="./Images/2.png" alt="./Images/2.png" height="32" />
+</span>     : Toggle camera rotation<br />
+<span class="image">
+<img src="./Images/s.png" alt="./Images/s.png" height="32" />
+</span>     : Toggle star trek mode<br /></p></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_13">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="36%" />
+<col width="9%" />
+<col width="36%" />
+<col width="18%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">361</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">3Mb (Particle position, velocity, collision normal)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">5</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">14379</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">42</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">1</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">7</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="page-break-after:always"></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lanterns">Lanterns</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><span class="image">
+<img src="./Images/Lanterns.png" alt="./Images/Lanterns.png" height="425" />
+</span></p></div>
+<div class="sect2">
+<h3 id="_overview_14">Overview</h3>
+<div class="paragraph"><p>Shows depth of field rendered progressively through a more physically accurate model of a spherical lens camera.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_techniques_shown_14">Techniques shown</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+How to use random numbers to drive "fuzzy" effects that involve integration.  The spherical lens model
+  is implemented in a <strong>frame shader</strong>.  The frame shader randomly samples the lens function and computes
+  a ray direction which is then cast into the scene.  The random numbers are stored in a texture map
+  which is sampled using nearest neighbour filtering.
+</p>
+</li>
+<li>
+<p>
+On each rendering pass, a different offset into the random number texture is used so that, over several
+  rendering passes, a good coverage of the lens function is covered.
+</p>
+</li>
+<li>
+<p>
+Using <strong>FBOs</strong> for progressive refinement; improve user experience by allowing the user
+  to watch the image converge instead of waiting for one final render.  On each rendering pass, the results
+  are accumulated into an off-screen FBO.  For display, that off-screen FBO&#8217;s pixel values are scaled
+  by <code>(1.0 / NumberOfPasses)</code> to produce a viewable image of the current state of refinement.
+</p>
+</li>
+<li>
+<p>
+Generation of sophisticated procedural surfaces using RLSL for both the background city lights
+  and the lantern paper texture.  This involves some creative use of the built in RLSL <strong>Perlin noise</strong> functions.
+</p>
+</li>
+<li>
+<p>
+Multiple primary rays are emitted from the <strong>frame shader</strong>.  Note how <strong>rl_OutputRayCount</strong> is
+  set to the <strong>uniform</strong> value which contains the sample count.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_keyboard_controls_14">Keyboard Controls</h3>
+<div class="paragraph"><p><span class="image">
+<img src="./Images/q.png" alt="./Images/q.png" height="32" />
+</span> : Increase focal distance (further away from camera)<br />
+<span class="image">
+<img src="./Images/a.png" alt="./Images/a.png" height="32" />
+</span> : Decrease focal distance (closer to camera)<br />
+<span class="image">
+<img src="./Images/w.png" alt="./Images/w.png" height="32" />
+</span> : Increase depth of field (reduces circle of confusion / bokeh)<br />
+<span class="image">
+<img src="./Images/s.png" alt="./Images/s.png" height="32" />
+</span> : Decrease depth of field (increases circle of confusion / bokeh)<br /></p></div>
+<div style="page-break-after:always"></div>
+</div>
+<div class="sect2">
+<h3 id="_statistics_14">Statistics</h3>
+<div class="tableblock">
+<table rules="all"
+width="100%"
+frame="border"
+cellspacing="0" cellpadding="4">
+<col width="36%" />
+<col width="9%" />
+<col width="36%" />
+<col width="18%" />
+<tbody>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of application C-code</p></td>
+<td align="left" valign="top"><p class="table">400</p></td>
+<td align="left" valign="top"><p class="table">Bytes of Texture data</p></td>
+<td align="left" valign="top"><p class="table">1Mb (lantern text decal)</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL ray shader</p></td>
+<td align="left" valign="top"><p class="table">52</p></td>
+<td align="left" valign="top"><p class="table">Number of triangles</p></td>
+<td align="left" valign="top"><p class="table">30658</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL frame shader</p></td>
+<td align="left" valign="top"><p class="table">84</p></td>
+<td align="left" valign="top"><p class="table">Number of primitives</p></td>
+<td align="left" valign="top"><p class="table">17</p></td>
+</tr>
+<tr>
+<td align="left" valign="top"><p class="table">Lines of RLSL vertex shader</p></td>
+<td align="left" valign="top"><p class="table">18</p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+<td align="left" valign="top"><p class="table"></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Copyright&copy; Caustic Graphics, Inc. 2006-2013.  OpenRL SDK 1.3 R2
+</div>
+</div>
+</body>
+</html>
